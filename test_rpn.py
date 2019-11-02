@@ -1,5 +1,6 @@
 import unittest
 import rpn
+import numpy
 
 class TestBasics(unittest.TestCase):
     def test_add(self):
@@ -17,6 +18,9 @@ class TestBasics(unittest.TestCase):
     def test_div2(self):
         result = rpn.calculate('24 8 /')
         self.assertEqual(3, result)
+    def test_dot_prod(self):
+        result = rpn.calculate('[1,0] [4,1] @')
+        self.assertEqual(4, result)
     def test_bad_input(self):
         with self.assertRaises(TypeError):
             rpn.calculate('1 2 3 +')
