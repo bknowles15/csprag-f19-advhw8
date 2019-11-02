@@ -5,5 +5,9 @@ install:
 
 python:
         - "3.6"
+
 script:
         coverage run -m unittest
+
+after-success:
+        - coveralls
