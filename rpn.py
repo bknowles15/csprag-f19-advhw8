@@ -3,6 +3,10 @@
 
 import operator
 import numpy as np
+import logging
+
+# Uncomment for debugging print statements
+#logging.basicConfig(level=logging.DEBUG)
 
 OPS = {
     '+': operator.add, 
@@ -39,6 +43,7 @@ def calculate(arg):
                 num1 = stack.pop()
                 num2 = stack.pop()
                 stack.append(function(num2, num1))
+        logging.debug(stack)
     if len(stack) != 1:
         raise TypeError('Malformed input')
     return stack.pop()
